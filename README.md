@@ -11,4 +11,7 @@ Allows users to view and teleport to their locked vehicles.
 - `vehicleteleporter.vehicletp` - Users with this permission can execute the `/VehicleTP` command.
 
 ## Demonstration:
-https://www.youtube.com/watch?v=77-NDa9ObDc
+- https://www.youtube.com/watch?v=77-NDa9ObDc
+
+
+#### Thanks to `!? Blue#0001` for the idea!
