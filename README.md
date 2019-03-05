@@ -1,5 +1,5 @@
 # VehicleTeleporter
-Allows users to view and teleport to their locked vehicles.
+Allows users to view, teleport to and retrieve their locked vehicles.
 
 ## Configuration:
 - `RemoveVehicleOnGet` - When true, removes the old locked vehicle when teleporting it to you. Default value is true.
