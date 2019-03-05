@@ -8,7 +8,7 @@ using SDG.Unturned;
 using VehicleTeleporter;
 using System.Text.RegularExpressions;
 
-namespace KillDisplay
+namespace VehicleTeleporter
 {
     public class CommandVehicleGet : IRocketCommand
     {
