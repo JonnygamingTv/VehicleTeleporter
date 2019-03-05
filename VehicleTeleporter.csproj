@@ -59,8 +59,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandVehicleGet.cs" />
     <Compile Include="CommandVehicles.cs" />
     <Compile Include="CommandVehicleTP.cs" />
+    <Compile Include="ConfigurationVehicleTeleporter.cs" />
     <Compile Include="UtilPlayer.cs" />
     <Compile Include="VehicleTeleporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
