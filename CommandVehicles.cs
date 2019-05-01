@@ -5,7 +5,6 @@ using Rocket.Unturned.Chat;
 using System.Collections.Generic;
 using UnityEngine;
 using SDG.Unturned;
-using VehicleTeleporter;
 
 namespace VehicleTeleporter
 {
@@ -32,7 +31,7 @@ namespace VehicleTeleporter
 
             UtilPlayer utilPlayer = uPlayer.GetComponent<UtilPlayer>();
 
-            if (VehicleTeleporter.VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
+            if (VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
             {
                 int vehicleCount = 0;
                 foreach (InteractableVehicle Vehicle in utilPlayer.vehicleList)
