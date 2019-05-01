@@ -10,7 +10,7 @@ Allows users to view, teleport to and retrieve their locked vehicles.
 - `/VehicleTP [Vehicle #]` - Teleports you to one of your locked vehicles.
 - `/VTP [Vehicle #]` - Alias to `/VehicleTP`.
 - `/VehicleGet [Vehicle #]` - Gives you one of your locked vehicles. (Vehicle information included!)
-- `/VGet [Vehicle #]` - Alias tot `/VehicleGet`
+- `/VGet [Vehicle #]` - Alias to `/VehicleGet`
 
 ## Permissions:
 - `vehicleteleporter.vehicles` - Users with this permission can execute the `/Vehicles` command.
