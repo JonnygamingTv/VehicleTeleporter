@@ -126,7 +126,7 @@ namespace VehicleTeleporter
                 newVehicle.turrets[i].state[10] = (byte)desiredVehicle.turrets[i].state[10];
             }
 
-            if (VehicleTeleporter.VehicleTeleporter.Instance.Configuration.Instance.RemoveVehicleOnGet)
+            if (VehicleTeleporter.Instance.Configuration.Instance.RemoveVehicleOnGet)
             {
                 VehicleManager.askVehicleDestroy(desiredVehicle);
                 VehicleManager.instance.channel.send("tellVehicleDestroy", ESteamCall.ALL, ESteamPacket.UPDATE_RELIABLE_BUFFER, desiredVehicle.instanceID);
