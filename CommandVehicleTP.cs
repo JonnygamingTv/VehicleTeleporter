@@ -5,7 +5,6 @@ using Rocket.Unturned.Chat;
 using System.Collections.Generic;
 using UnityEngine;
 using SDG.Unturned;
-using VehicleTeleporter;
 using System.Text;
 using System.Text.RegularExpressions;
 using Logger = Rocket.Core.Logging.Logger;
@@ -35,7 +34,7 @@ namespace VehicleTeleporter
 
             UtilPlayer utilPlayer = uPlayer.GetComponent<UtilPlayer>();
 
-            if (VehicleTeleporter.VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
+            if (VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
             {
                 if (Regex.IsMatch(Command[0], @"^\d+$"))
                 {
