@@ -5,7 +5,6 @@ using Rocket.Unturned.Chat;
 using System.Collections.Generic;
 using UnityEngine;
 using SDG.Unturned;
-using VehicleTeleporter;
 using System.Text.RegularExpressions;
 
 namespace VehicleTeleporter
