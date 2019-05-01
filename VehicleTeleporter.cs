@@ -7,7 +7,7 @@ using Logger = Rocket.Core.Logging.Logger;
 
 namespace VehicleTeleporter
 {
-    public class VehicleTeleporter : RocketPlugin
+    public class VehicleTeleporter : RocketPlugin<ConfigurationVehicleTeleporter>
     {
         public static VehicleTeleporter Instance;
 
