@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Logger = Rocket.Core.Logging.Logger;
 
-namespace KillDisplay
+namespace VehicleTeleporter
 {
     class CommandVehicleTP : IRocketCommand
     {
