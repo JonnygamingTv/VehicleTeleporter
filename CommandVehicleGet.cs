@@ -32,7 +32,7 @@ namespace VehicleTeleporter
             if (Command.Length == 0 || Command.Length > 1) { UnturnedChat.Say(uPlayer, Syntax, Color.red); return; }
 
             UtilPlayer utilPlayer = uPlayer.GetComponent<UtilPlayer>();
-            if (VehicleTeleporter.VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
+            if (VehicleTeleporter.Instance.HasVehicles(uPlayer.CSteamID) > 0)
             {
                 if (Regex.IsMatch(Command[0], @"^\d+$"))
                 {
