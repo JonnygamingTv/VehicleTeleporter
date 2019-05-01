@@ -7,7 +7,7 @@ using UnityEngine;
 using SDG.Unturned;
 using VehicleTeleporter;
 
-namespace KillDisplay
+namespace VehicleTeleporter
 {
     public class CommandVehicles : IRocketCommand
     {
