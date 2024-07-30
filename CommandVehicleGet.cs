@@ -67,31 +67,10 @@ namespace VehicleTeleporter
         {
             uint instanceID = newVehicle.instanceID;
 
-            VehicleManager.instance.channel.send("tellVehicleHealth", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[2]
-            {
-                (object) instanceID,
-                (object) desiredVehicle.health
-            });
-
-            VehicleManager.instance.channel.send("tellVehicleFuel", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[2]
-            {
-                (object) instanceID,
-                (object) desiredVehicle.fuel
-            });
-
-            VehicleManager.instance.channel.send("tellVehicleBatteryCharge", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[2]
-            {
-                (object) instanceID,
-                (object) desiredVehicle.batteryCharge
-            });
-
-            VehicleManager.instance.channel.send("tellVehicleLock", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[4]
-            {
-                (object) instanceID,
-                (object) uPlayer.CSteamID,
-                (object) uPlayer.SteamGroupID,
-                (object) true
-            });
+            desiredVehicle.tellHealth(desiredVehicle.health);
+            desiredVehicle.tellFuel(desiredVehicle.fuel);
+            desiredVehicle.tellBatteryCharge(desiredVehicle.batteryCharge);
+            desiredVehicle.tellLocked(desiredVehicle.lockedOwner, desiredVehicle.lockedGroup, desiredVehicle.isLocked);
 
             for (int i = 0; i < newVehicle.tires.Length; i++)
             {
@@ -104,20 +83,12 @@ namespace VehicleTeleporter
 
             if (desiredVehicle.headlightsOn)
             {
-                VehicleManager.instance.channel.send("tellVehicleHeadlights", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[2]
-                {
-                    (object) instanceID,
-                    (object) desiredVehicle.headlightsOn
-                });
+                desiredVehicle.tellHeadlights(desiredVehicle.headlightsOn);
             }
 
             if (desiredVehicle.sirensOn)
             {
-                VehicleManager.instance.channel.send("tellVehicleSirens", ESteamCall.ALL, ESteamPacket.UPDATE_UNRELIABLE_BUFFER, new object[2]
-                {
-                    (object) instanceID,
-                    (object) desiredVehicle.sirensOn
-                });
+                desiredVehicle.tellSirens(desiredVehicle.sirensOn);
             }
 
             for (int i = 0; i < desiredVehicle.turrets.Length; i++)
@@ -128,7 +99,6 @@ namespace VehicleTeleporter
             if (VehicleTeleporter.Instance.Configuration.Instance.RemoveVehicleOnGet)
             {
                 VehicleManager.askVehicleDestroy(desiredVehicle);
-                VehicleManager.instance.channel.send("tellVehicleDestroy", ESteamCall.ALL, ESteamPacket.UPDATE_RELIABLE_BUFFER, desiredVehicle.instanceID);
             }
 
             return;
