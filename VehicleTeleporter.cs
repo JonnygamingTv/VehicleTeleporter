@@ -35,13 +35,10 @@ namespace VehicleTeleporter
             {               
                 foreach (InteractableVehicle Vehicle in VehicleManager.vehicles)
                 {
-                    if (Vehicle.isLocked)
+                    if (Vehicle.isLocked && Vehicle.lockedOwner == uID)
                     {
-                        if (Vehicle.lockedOwner == uID)
-                        {
-                            UnturnedPlayer.FromCSteamID(uID).GetComponent<UtilPlayer>().vehicleList.Add(Vehicle);
-                            vehicleCount++;
-                        }
+                        UnturnedPlayer.FromCSteamID(uID).GetComponent<UtilPlayer>().vehicleList.Add(Vehicle);
+                        vehicleCount++;
                     }
                 }       
             }

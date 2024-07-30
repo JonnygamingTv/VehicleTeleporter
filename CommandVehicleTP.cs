@@ -40,9 +40,9 @@ namespace VehicleTeleporter
                 {
                     List<InteractableVehicle> playerVehicles = utilPlayer.vehicleList;
 
-                    if (int.Parse(Command[0]) <= playerVehicles.Count)
+                    if (ushort.TryParse(Command[0], out ushort indx) && indx <= playerVehicles.Count)
                     {
-                        InteractableVehicle desiredVehicle = playerVehicles[int.Parse(Command[0]) - 1];
+                        InteractableVehicle desiredVehicle = playerVehicles[indx - 1];
                       
                         uPlayer.Teleport(new Vector3(desiredVehicle.transform.position.x, desiredVehicle.transform.position.y + 3, desiredVehicle.transform.position.z), uPlayer.Rotation);
                         UnturnedChat.Say(uPlayer, $"You have teleported to your {desiredVehicle.asset.vehicleName}!", Color.yellow);
