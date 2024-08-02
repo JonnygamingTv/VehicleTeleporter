@@ -37,7 +37,7 @@ namespace VehicleTeleporter
                 foreach (InteractableVehicle Vehicle in utilPlayer.vehicleList)
                 {
                     vehicleCount++;
-                    UnturnedChat.Say(uPlayer, $"[{vehicleCount}/{utilPlayer.vehicleList.Count}] {Vehicle.asset.vehicleName}", Color.yellow);
+                    UnturnedChat.Say(uPlayer, $"[{vehicleCount}/{utilPlayer.vehicleList.Count}] {Vehicle.asset.vehicleName} {Vehicle.instanceID} ({Vehicle.transform.position.x},{Vehicle.transform.position.y},{Vehicle.transform.position.z})", Color.yellow);
                 }
                 return;
             }
