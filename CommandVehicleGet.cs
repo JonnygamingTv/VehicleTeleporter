@@ -40,9 +40,10 @@ namespace VehicleTeleporter
                     if (int.Parse(Command[0]) <= playerVehicles.Count)
                     {
                         InteractableVehicle desiredVehicle = playerVehicles[int.Parse(Command[0]) - 1];
-                        uPlayer.GiveVehicle(desiredVehicle.id);
-                        InteractableVehicle newVehicle = VehicleManager.vehicles[VehicleManager.vehicles.Count - 1];
-                        RetrieveVehicle(desiredVehicle, newVehicle, uPlayer);
+                        desiredVehicle.transform.SetPositionAndRotation(new Vector3(uPlayer.Position.x, uPlayer.Position.y + 6f, uPlayer.Position.z), uPlayer.Player.look.transform.rotation);
+                        //uPlayer.GiveVehicle(desiredVehicle.id);
+                        //InteractableVehicle newVehicle = VehicleManager.vehicles[VehicleManager.vehicles.Count - 1];
+                        //RetrieveVehicle(desiredVehicle, newVehicle, uPlayer);
                         UnturnedChat.Say(uPlayer, $"You have teleported your {desiredVehicle.asset.vehicleName} to you!", Color.yellow);
                     }
                     else
