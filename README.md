@@ -2,7 +2,7 @@
 Allows users to view, teleport to and retrieve their locked vehicles.
 
 ## Configuration:
-- `RemoveVehicleOnGet` - When true, removes the old locked vehicle when teleporting it to you. Default value is true.
+~~- `RemoveVehicleOnGet` - When true, removes the old locked vehicle when teleporting it to you. Default value is true.~~ (Changed to actually teleporting the original vehicle)
 - `BlacklistedVehicles` - A list of all the vehicle IDs you don't want users to be able to view, teleport & retrieve. Default value is 140.
 
 ## Commands:
