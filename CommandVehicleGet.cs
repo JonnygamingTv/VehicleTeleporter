@@ -37,18 +37,18 @@ namespace VehicleTeleporter
                 {
                     List<InteractableVehicle> playerVehicles = utilPlayer.vehicleList;
 
-                    if (int.Parse(Command[0]) <= playerVehicles.Count)
+                    if (byte.TryParse(Command[0], out byte ind) && ind <= playerVehicles.Count && ind != 0)
                     {
-                        InteractableVehicle desiredVehicle = playerVehicles[int.Parse(Command[0]) - 1];
+                        InteractableVehicle desiredVehicle = playerVehicles[ind - 1];
                         desiredVehicle.transform.SetPositionAndRotation(new Vector3(uPlayer.Position.x, uPlayer.Position.y + 6f, uPlayer.Position.z), uPlayer.Player.look.transform.rotation);
                         //uPlayer.GiveVehicle(desiredVehicle.id);
                         //InteractableVehicle newVehicle = VehicleManager.vehicles[VehicleManager.vehicles.Count - 1];
                         //RetrieveVehicle(desiredVehicle, newVehicle, uPlayer);
-                        UnturnedChat.Say(uPlayer, $"You have teleported your {desiredVehicle.asset.vehicleName} to you!", Color.yellow);
+                        UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("get_vehicle", desiredVehicle.asset.vehicleName), Color.yellow);
                     }
                     else
                     {
-                        UnturnedChat.Say(uPlayer, $"Please select a number between 1 and {playerVehicles.Count}.", Color.red);
+                        UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("select_vehicle", playerVehicles.Count), Color.red);
                         return;
                     }
                 }
@@ -60,7 +60,7 @@ namespace VehicleTeleporter
             }
             else
             {
-                UnturnedChat.Say(uPlayer, "You do not have any locked vehicles!", Color.red);
+                UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("no_locked_vehicles"), Color.red);
             }
         }
 

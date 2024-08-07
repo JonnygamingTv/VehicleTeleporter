@@ -37,13 +37,13 @@ namespace VehicleTeleporter
                 foreach (InteractableVehicle Vehicle in utilPlayer.vehicleList)
                 {
                     vehicleCount++;
-                    UnturnedChat.Say(uPlayer, $"[{vehicleCount}/{utilPlayer.vehicleList.Count}] {Vehicle.asset.vehicleName} {Vehicle.instanceID} ({Vehicle.transform.position.x},{Vehicle.transform.position.y},{Vehicle.transform.position.z})", Color.yellow);
+                    UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("vehicle_list_line", vehicleCount, utilPlayer.vehicleList.Count, Vehicle.asset.vehicleName, Vehicle.instanceID, Vehicle.transform.position.x, Vehicle.transform.position.y, Vehicle.transform.position.z), Color.yellow); //$"[{vehicleCount}/{utilPlayer.vehicleList.Count}] {Vehicle.asset.vehicleName} {Vehicle.instanceID} ({Vehicle.transform.position.x},{Vehicle.transform.position.y},{Vehicle.transform.position.z})", Color.yellow);
                 }
                 return;
             }
             else
             {
-                UnturnedChat.Say(uPlayer, "You do not have any locked vehicles!", Color.red);
+                UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("no_locked_vehicles"), Color.red);
                 return;
             }
 

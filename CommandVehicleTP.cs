@@ -40,17 +40,17 @@ namespace VehicleTeleporter
                 {
                     List<InteractableVehicle> playerVehicles = utilPlayer.vehicleList;
 
-                    if (ushort.TryParse(Command[0], out ushort indx) && indx <= playerVehicles.Count)
+                    if (byte.TryParse(Command[0], out byte indx) && indx <= playerVehicles.Count && indx != 0)
                     {
                         InteractableVehicle desiredVehicle = playerVehicles[indx - 1];
                       
                         uPlayer.Teleport(new Vector3(desiredVehicle.transform.position.x, desiredVehicle.transform.position.y + 3, desiredVehicle.transform.position.z), uPlayer.Rotation);
-                        UnturnedChat.Say(uPlayer, $"You have teleported to your {desiredVehicle.asset.vehicleName}!", Color.yellow);
+                        UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("tp_vehicle", desiredVehicle.asset.vehicleName), Color.yellow);
                         playerVehicles.Remove(desiredVehicle);
                     }
                     else
                     {
-                        UnturnedChat.Say(uPlayer, $"Please select a number between 1 and {playerVehicles.Count}.", Color.red);
+                        UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("select_vehicle", playerVehicles.Count), Color.red);
                         return;
                     }
                 }
@@ -61,7 +61,7 @@ namespace VehicleTeleporter
                 }
             } else
             {
-                UnturnedChat.Say(uPlayer, "You do not have any locked vehicles!", Color.red);
+                UnturnedChat.Say(uPlayer, VehicleTeleporter.Instance.Translations.Instance.Translate("no_locked_vehicles"), Color.red);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Rocket.Core.Plugins;
+﻿using Rocket.API.Collections;
+using Rocket.Core.Plugins;
 using Rocket.Unturned.Player;
 using SDG.Unturned;
 using Steamworks;
@@ -43,6 +44,19 @@ namespace VehicleTeleporter
                 }       
             }
             return vehicleCount;
+        }
+        public override TranslationList DefaultTranslations
+        {
+            get
+            {
+                return new TranslationList(){
+                    {"vehicle_list_line","[{0}/{1}] {2} {3} ({4},{5},{6})"},
+                    {"no_locked_vehicles","You do not have any locked vehicles!"},
+                    {"select_vehicle","Please select a number between 1 and {0}."},
+                    {"get_vehicle","You have teleported your {0} to you!"},
+                    {"tp_vehicle","You have teleported to your {0}!"}
+                };
+            }
         }
     }
 }
